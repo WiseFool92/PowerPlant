@@ -2,9 +2,16 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from "jquery";
-import { stateChanger, blueFood, giveLight, hydrate, storeState, initialPlantState, giveName, waterRentention, soilBoost, canCharge } from "./plant.js";
+import { blueFood, giveLight, hydrate, storeState, initialPlantState } from "./plant.js";
+import { sstoreState, cchangeState, iinitialPlantState} from "./plant2.js";
 
 $(document).ready(function () {
+
+  // Array Testing
+  //  const anyVariable = sstoreState(iinitialPlantState);
+  //  const oneMoreVariable = cchangeState(4)(99);
+  //  console.log(`||||||||||||||||||||||||||||||||||||||||| ${anyVariable(oneMoreVariable)}`);
+  // Array Testing
 
   const tree = storeState(initialPlantState);
   const shrub = storeState(initialPlantState);
@@ -13,12 +20,6 @@ $(document).ready(function () {
   $("#feed").click(function () {
     var radioValue = $("input[name='plant-choice']:checked").val();
     
-    const thisTreeName = tree(giveName(() => console.log("whatup")));
-
-    // const theTreeSays = thisTreeName.ability;
-    // console.log(theTreeSays);
-    //console.log(thisTreeName.name);
-
     let modifer;
     let temp;
     switch (radioValue) {
@@ -39,7 +40,6 @@ $(document).ready(function () {
     }
     
     const thisPlant = temp(blueFood(modifier));
-    
     $("#"+ radioValue + "-soil-value").text(thisPlant.soil);
   });
 

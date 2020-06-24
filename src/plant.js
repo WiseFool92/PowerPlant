@@ -1,3 +1,5 @@
+export const initialPlantState = {light: 0, soil: 0, water: 0}
+
 const changeState = (prop) => {
   return (value) => {
     return (state) => ({
@@ -6,20 +8,6 @@ const changeState = (prop) => {
     })
   }
 }
-
-export const giveName = changeState("ability");
-
-export const giveLight = (modifier) => changeState("light")(4 * modifier);
-
-export const hydrate = (modifier) => changeState("water")(3 * modifier);
-
-export const blueFood = (modifier) => changeState("soil")(5 * modifier);
-
-// Unused
-const greenFood = changeState("soil")(10);
-const yuckyFood = changeState("soil")(-5);
-
-export const initialPlantState = {light: 0, soil: 0, water: 0}
 
 export const storeState = (initialPlantState) => {
   let currentState = initialPlantState;
@@ -30,35 +18,19 @@ export const storeState = (initialPlantState) => {
   }
 }
 
-// Code below not affecting anything yet
-// The goal is to use composition to give the three plants a seperate defining ability
-// Flower a light multiplier of x2
-// Shrub a soil multiplier of x3
-// Tree a water multiplier of x4
-export const stateChanger = storeState();
-// const tree = storeState(initialPlantState);
-// const shrub = storeState(initialPlantState);
-// const flower = storeState(initialPlantState)("soil")(9);
+// Needs to connect with modifier
+export const returnState = (initialPlantState) => {
+  let 
+}
 
-// Don't need these anymore
 
-// // Plant abilities
-// export const canCharge = (flower) => ({
-//   charge: () => {
-//     return `The ${flower.name} charges up`
-//   }
-// });
+export const giveLight = (modifier) => changeState("light")(4 * modifier);
 
-// // Shrub
-// export const soilBoost = (shrub) => ({
-//   endure: () => {
-//     return `The ${shrub.name} soil fertility increases`
-//   }
-// });
+export const hydrate = (modifier) => changeState("water")(3 * modifier);
 
-// // Tree
-// export const waterRentention = (tree) => ({
-//   absorb: () => {
-//     return `The ${tree.name} water supply is bolstered`
-//   }
-// });
+export const blueFood = (modifier) => changeState("soil")(5 * modifier);
+
+// Unused
+// const greenFood = changeState("soil")(10);
+// const yuckyFood = changeState("soil")(-5);
+// Unused
