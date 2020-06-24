@@ -9,6 +9,9 @@ const changeState = (prop) => {
   }
 }
 
+const tree = storeState({});
+const newStateObject = tree(changeState("water")(10))
+
 export const storeState = (initialPlantState) => {
   let currentState = initialPlantState;
   return (stateChangeFunction) => {
@@ -18,16 +21,20 @@ export const storeState = (initialPlantState) => {
   }
 }
 
-// Needs to connect with modifier
-export const returnState = (initialPlantState) => {
-  let currentState = initialPlantState;
-  return () => {
+// // Needs to connect with modifier
+// export const returnState = (initialPlantState) => {
+//   let currentState = initialPlantState;
+//   return () => {
 
-  }
-}
-//  or
-const ourInitialState = storeState(initialPlantState); 
-const returnState = ourInitialState();
+//   }
+// }
+// //  or
+// const ourInitialState = storeState(initialPlantState); 
+// const returnState = ourInitialState();
+// // or
+// const returnState = (state) => {
+//   return state
+// }
 
 
 export const giveLight = (modifier) => changeState("light")(4 * modifier);

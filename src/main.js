@@ -20,12 +20,12 @@ $(document).ready(function () {
   $("#feed").click(function () {
     var radioValue = $("input[name='plant-choice']:checked").val();
     
-    let modifer;
+    let modifier;
     let temp;
     switch (radioValue) {
       case "tree":
         temp = tree;
-        modifer = 1;
+        modifier = 1;
       break;
       case "shrub":
         temp = shrub;
@@ -55,7 +55,7 @@ $(document).ready(function () {
       break;
       case "shrub":
         temp = shrub;
-        modifer = 1;
+        modifier = 1;
       break;
       case "flower":
         temp = flower;
@@ -65,7 +65,7 @@ $(document).ready(function () {
       break;
     }
     
-    const thisPlant = temp(hydrate(modifer));
+    const thisPlant = temp(hydrate(modifier));
     $("#"+ radioValue + "-water-value").text(thisPlant.water);
   });
 
@@ -75,23 +75,31 @@ $(document).ready(function () {
     let modifier;
     let temp;
     switch (radioValue) {
-      case "tree":
+      case "tree":{
         temp = tree;
         modifier = 1;
+        console.log("first");
+      }
       break;
-      case "shrub":
+      case "shrub":{
         temp = shrub;
-        modifer = 1; 
+        modifier = 1;
+        console.log("second");
+      } 
       break;
-      case "flower":
+      case "flower":{
         temp = flower;
         modifier = 2;
+        console.log("third");
+      }
       break;
       default:
       break;
     }
     
-    const thisPlant = temp(giveLight(modifer));
+    console.log(`|||||||||||||| ${modifier}`);
+
+    const thisPlant = temp(giveLight(modifier));
     $("#"+ radioValue + "-light-value").text(thisPlant.light);
   });
 });
