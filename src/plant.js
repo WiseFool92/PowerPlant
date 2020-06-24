@@ -28,7 +28,11 @@ export const storeState = (initialPlantState) => {
   }
 }
 
-// Code below not affecting the display yet
+// Code below not affecting anything yet
+// The goal is to use composition to give the three plants a seperate defining ability
+// Flower a light multiplier of x2
+// Shrub a soil multiplier of x3
+// Tree a water multiplier of x4
 export const stateChanger = storeState();
 // const tree = storeState(initialPlantState);
 // const shrub = storeState(initialPlantState);
