@@ -20,8 +20,14 @@ export const storeState = (initialPlantState) => {
 
 // Needs to connect with modifier
 export const returnState = (initialPlantState) => {
-  let 
+  let currentState = initialPlantState;
+  return () => {
+
+  }
 }
+//  or
+const ourInitialState = storeState(initialPlantState); 
+const returnState = ourInitialState();
 
 
 export const giveLight = (modifier) => changeState("light")(4 * modifier);
