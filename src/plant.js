@@ -30,9 +30,9 @@ export const storeState = (initialPlantState) => {
 
 // Code below not affecting the display yet
 export const stateChanger = storeState();
-const tree = storeState(initialPlantState);
-const shrub = storeState(initialPlantState);
-const flower = storeState(initialPlantState)(soil)(9);
+// const tree = storeState(initialPlantState);
+// const shrub = storeState(initialPlantState);
+// const flower = storeState(initialPlantState)(soil)(9);
 
 
 // Plant abilities
