@@ -32,8 +32,7 @@ export const storeState = (initialPlantState) => {
 export const stateChanger = storeState();
 // const tree = storeState(initialPlantState);
 // const shrub = storeState(initialPlantState);
-// const flower = storeState(initialPlantState)(soil)(9);
-
+// const flower = storeState(initialPlantState)("soil")(9);
 
 // Plant abilities
 export const canCharge = (flower) => ({
@@ -41,8 +40,6 @@ export const canCharge = (flower) => ({
     return `The ${flower.name} charges up`
   }
 });
-
-
 
 // Shrub
 export const soilBoost = (shrub) => ({
