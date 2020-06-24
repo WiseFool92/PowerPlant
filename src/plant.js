@@ -9,11 +9,13 @@ const changeState = (prop) => {
 
 export const giveName = changeState("ability");
 
-export const giveLight = changeState("light")(4);
+export const giveLight = (modifier) => changeState("light")(4 * modifier);
 
-export const hydrate = changeState("water")(3);
+export const hydrate = (modifier) => changeState("water")(3 * modifier);
 
-export const blueFood = changeState("soil")(5);
+export const blueFood = (modifier) => changeState("soil")(5 * modifier);
+
+// Unused
 const greenFood = changeState("soil")(10);
 const yuckyFood = changeState("soil")(-5);
 
@@ -38,23 +40,25 @@ export const stateChanger = storeState();
 // const shrub = storeState(initialPlantState);
 // const flower = storeState(initialPlantState)("soil")(9);
 
-// Plant abilities
-export const canCharge = (flower) => ({
-  charge: () => {
-    return `The ${flower.name} charges up`
-  }
-});
+// Don't need these anymore
 
-// Shrub
-export const soilBoost = (shrub) => ({
-  endure: () => {
-    return `The ${shrub.name} soil fertility increases`
-  }
-});
+// // Plant abilities
+// export const canCharge = (flower) => ({
+//   charge: () => {
+//     return `The ${flower.name} charges up`
+//   }
+// });
 
-// Tree
-export const waterRentention = (tree) => ({
-  absorb: () => {
-    return `The ${tree.name} water supply is bolstered`
-  }
-});
+// // Shrub
+// export const soilBoost = (shrub) => ({
+//   endure: () => {
+//     return `The ${shrub.name} soil fertility increases`
+//   }
+// });
+
+// // Tree
+// export const waterRentention = (tree) => ({
+//   absorb: () => {
+//     return `The ${tree.name} water supply is bolstered`
+//   }
+// });

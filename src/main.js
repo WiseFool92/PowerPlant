@@ -19,22 +19,26 @@ $(document).ready(function () {
     // console.log(theTreeSays);
     //console.log(thisTreeName.name);
 
+    let modifer;
     let temp;
     switch (radioValue) {
       case "tree":
         temp = tree;
+        modifer = 1;
       break;
       case "shrub":
         temp = shrub;
+        modifier = 3;
       break;
       case "flower":
         temp = flower;
+        modifier = 1;
       break;
       default:
       break;
     }
     
-    const thisPlant = temp(blueFood);
+    const thisPlant = temp(blueFood(modifier));
     
     $("#"+ radioValue + "-soil-value").text(thisPlant.soil);
   });
@@ -42,44 +46,52 @@ $(document).ready(function () {
   $("#hydrate").click(function () {
     var radioValue = $("input[name='plant-choice']:checked").val();
 
+    let modifier;
     let temp;
     switch (radioValue) {
       case "tree":
         temp = tree;
+        modifier = 4;
       break;
       case "shrub":
         temp = shrub;
+        modifer = 1;
       break;
       case "flower":
         temp = flower;
+        modifier = 1;
       break;
       default:
       break;
     }
     
-    const thisPlant = temp(hydrate);
+    const thisPlant = temp(hydrate(modifer));
     $("#"+ radioValue + "-water-value").text(thisPlant.water);
   });
 
   $("#giveLight").click(function () {
     var radioValue = $("input[name='plant-choice']:checked").val();
 
+    let modifier;
     let temp;
     switch (radioValue) {
       case "tree":
         temp = tree;
+        modifier = 1;
       break;
       case "shrub":
         temp = shrub;
+        modifer = 1; 
       break;
       case "flower":
         temp = flower;
+        modifier = 2;
       break;
       default:
       break;
     }
     
-    const thisPlant = temp(giveLight);
+    const thisPlant = temp(giveLight(modifer));
     $("#"+ radioValue + "-light-value").text(thisPlant.light);
   });
 });
